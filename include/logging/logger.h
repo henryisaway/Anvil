@@ -3,6 +3,7 @@
 
 // Toggle logging on/off if LOGGER is 1 (on) or 0 (off)
 #define LOGGING 1
+#define MAX_LOG_MSG_SIZE 256
 
 /* @brief logs a message to stdout if LOGGING is set to 1
 * @param message The message to be sent to stdout
