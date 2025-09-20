@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.15)
+project(Anvil)
+cmake_policy(SET CMP0072 NEW)
+
+# Set C standard
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD_REQUIRED True)
+
+# Includes
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+# Automatically find all source files in the src directory
+file(GLOB_RECURSE APP_SOURCES "src/*.c")
+
+# Add executable
+add_executable(Anvil
+    ${APP_SOURCES}
+)
