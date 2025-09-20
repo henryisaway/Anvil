@@ -2,7 +2,6 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-#include <string.h>
 
 #include "commands/command_registry.h"
 #include "commands/handlers.h"
@@ -16,17 +15,6 @@ bool validate_argc(int argc) {
     }
 
     return true;
-}
-
-Command find_command(char* query) {
-    Command command = command_registry[0];
-
-    for(int i = 0; command.name != NULL; i++) {
-        if (strcmp(query, command.name) == 0) { return command; }
-        command = command_registry[i];
-    }
-
-    return (Command){NULL, CMD_NULL, NULL, NULL};
 }
 
 void dispatch_command(int argc, char* argv[]) {

@@ -7,19 +7,34 @@
 void handler_help(int argc, char** argv) {
     log_message("handler_help was called.");
 
+    printf("Welcome to Anvil's help page!\n\n");
+
     // By this point, we are sure argc > 1 ("anvil help [optional command name]")
     if (argc <= 2) {
         log_message("'help' was called with no additional arguments.");
-        printf("Welcome to Anvil's help page!\n\n");
-        printf("Note: <arguments> surrounded by <> are mandatory, while [arguments] surrounded by [] are optional.\n\n");
         printf("Command list:\n");
 
         Command command = command_registry[0];
         for (int i = 0; command.name != NULL; ) {
-            printf("- %s: %s\n", command.name,  command.help);
+            printf("- %s: %s\n", command.name,  command.desc);
             command = command_registry[++i];
         }
+
+        return;
     }
+
+    // By here, we know the user asked for help in a specific command
+    if (argc > 3) {
+        log_message("Invalid number of arguments provided to the help command.");
+        printf("Too many arguments. Usage: anvil help [command].\n");
+
+    }
+
+    printf("Note: <arguments> surrounded by <> are mandatory, while [arguments] surrounded by [] are optional.\n\n");
+
+    char* command_name = argv[2];
+    Command query = find_command(command_name);
+
 }
 
 void handler_new(int argc, char** argv) {

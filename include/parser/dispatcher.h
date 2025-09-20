@@ -7,8 +7,6 @@
 
 bool validate_argc(int argc);
 
-Command find_command(char* command_name);
-
 void dispatch_command(int argc, char* argv[]);
 
 #endif // ANVIL_PARSER_DISPATCHER_H_
