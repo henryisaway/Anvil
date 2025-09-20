@@ -28,6 +28,7 @@ Windows isn't officially supported.
 > These are all *planned* features, none of those have been fully implemented yet.
 
 The syntax is `anvil <command> <arguments>`. The main available commands are:
+- `anvil help [command]` to get a list of available commands. Optionally, you can ask for help about a specific command.
 - `anvil new <template_name> <project_name>` to create a new project using a given template.
 - `anvil create <template_name> <directory_path>` to create a new template from a given directory.
 - `anvil delete <template_name>` to delete a template.
