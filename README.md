@@ -12,7 +12,7 @@ If you are using a Linux-based distro and you have `make` installed, you can sim
 chmod +x build.sh
 ./build.sh
 ```
-and the project should compile and the binary can be found at `build/Anvil`. Move it somewhere in your `$PATH` (e.g. `/usr/local/bin`) so it can be invoked globally.
+and the project should compile and the binary can be found at `build/anvil`. Move it somewhere in your `$PATH` (e.g. `/usr/local/bin`) so it can be invoked globally.
 
 ### Linux & macOS (without `make`)
 You can still build manually with CMake:
@@ -20,7 +20,7 @@ You can still build manually with CMake:
 cmake -S . -B build
 cmake --build build
 ```
-The executable will be in `build/Anvil`.
+The executable will be in `build/anvil`.
 
 Windows isn't officially supported.
 

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(Anvil)
+project(anvil)
 cmake_policy(SET CMP0072 NEW)
 
 # Set C standard
@@ -14,6 +14,6 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 file(GLOB_RECURSE APP_SOURCES "src/*.c")
 
 # Add executable
-add_executable(Anvil
+add_executable(anvil
     ${APP_SOURCES}
 )
