@@ -26,11 +26,33 @@ Command find_command(char* query) {
     }
 
     throw_fatal_exception("Command not found.");
-    return (Command){NULL, NULL, NULL};
+
+    // This will never actually be called,
+    // since throw_fatal_exception calls
+    // exit(EXIT_FAILURE).
+    return (Command){NULL, CMD_NULL, NULL, NULL};
 }
 
 void dispatch_command(int argc, char* argv[]) {
     char* command_name = argv[1];
 
-    find_command(command_name);
+    Command command = find_command(command_name);
+
+    switch(command.command) {
+        case CMD_NEW:
+            printf("Dispatcher asked for NEW\n");
+            break;
+        case CMD_CREATE:
+            printf("Dispatcher asked for CREATE\n");
+            break;
+        case CMD_DELETE:
+            printf("Dispatcher asked for DELETE\n");
+            break;
+        case CMD_LIST:
+            printf("Dispatcher asked for LIST\n");
+            break;
+        default:
+            printf("Unknown command.\n");
+            // this should probably never be called
+    }
 }

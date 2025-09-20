@@ -5,8 +5,17 @@
 
 typedef void (*HandlerFunction)(int argc, char** argv);
 
+enum CommandEnum {
+    CMD_NEW,
+    CMD_CREATE,
+    CMD_DELETE,
+    CMD_LIST,
+    CMD_NULL
+};
+
 typedef struct Command {
     char* name;
+    enum CommandEnum command;
     HandlerFunction handler;
     char* help;
 } Command;
