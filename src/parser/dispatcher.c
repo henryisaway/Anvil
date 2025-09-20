@@ -38,6 +38,7 @@ void dispatch_command(int argc, char* argv[]) {
         case CMD_HELP:
             log_message("Dispatcher asked for HELP");
             handler_help(argc, argv);
+            break;
         case CMD_NEW:
             log_message("Dispatcher asked for NEW");
             handler_new(argc, argv);
