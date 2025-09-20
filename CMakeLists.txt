@@ -5,6 +5,7 @@ cmake_policy(SET CMP0072 NEW)
 # Set C standard
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED True)
+set(CMAKE_C_FLAGS "-Wall -Wextra -pedantic")
 
 # Includes
 include_directories(${CMAKE_SOURCE_DIR}/include)
