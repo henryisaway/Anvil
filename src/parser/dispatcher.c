@@ -35,6 +35,9 @@ void dispatch_command(int argc, char* argv[]) {
     Command command = find_command(command_name);
 
     switch(command.command) {
+        case CMD_HELP:
+            log_message("Dispatcher asked for HELP");
+            handler_help(argc, argv);
         case CMD_NEW:
             log_message("Dispatcher asked for NEW");
             handler_new(argc, argv);
@@ -53,7 +56,7 @@ void dispatch_command(int argc, char* argv[]) {
             break;
         default:
             log_message("Unknown command called.");
-
-            printf("'%s' is not a valid command. Use 'anvil help' for a list of available commands.\n", command_name);
+            printf("'%s' is not a valid command. Use 'anvil help' for a list of available commands.\n",
+            command_name);
     }
 }

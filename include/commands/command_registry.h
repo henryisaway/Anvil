@@ -6,6 +6,7 @@
 typedef void (*HandlerFunction)(int argc, char** argv);
 
 enum CommandEnum {
+    CMD_HELP,
     CMD_NEW,
     CMD_CREATE,
     CMD_DELETE,

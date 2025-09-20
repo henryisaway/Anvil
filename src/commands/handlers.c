@@ -3,6 +3,10 @@
 #include "commands/handlers.h"
 #include "logging/logger.h"
 
+void handler_help(int argc, char** argv) {
+    log_message("handler_help was called.");
+}
+
 void handler_new(int argc, char** argv) {
     log_message("handler_new was called.");
 }
