@@ -5,6 +5,7 @@
 #include <string.h>
 
 #include "commands/command_registry.h"
+#include "commands/handlers.h"
 #include "logging/logger.h"
 
 bool validate_argc(int argc) {
@@ -25,11 +26,6 @@ Command find_command(char* query) {
         command = command_registry[i];
     }
 
-    throw_fatal_exception("Command not found.");
-
-    // This will never actually be called,
-    // since throw_fatal_exception calls
-    // exit(EXIT_FAILURE).
     return (Command){NULL, CMD_NULL, NULL, NULL};
 }
 
@@ -40,19 +36,24 @@ void dispatch_command(int argc, char* argv[]) {
 
     switch(command.command) {
         case CMD_NEW:
-            printf("Dispatcher asked for NEW\n");
+            log_message("Dispatcher asked for NEW");
+            handler_new(argc, argv);
             break;
         case CMD_CREATE:
-            printf("Dispatcher asked for CREATE\n");
+            log_message("Dispatcher asked for CREATE");
+            handler_create(argc, argv);
             break;
         case CMD_DELETE:
-            printf("Dispatcher asked for DELETE\n");
+            log_message("Dispatcher asked for DELETE");
+            handler_delete(argc, argv);
             break;
         case CMD_LIST:
-            printf("Dispatcher asked for LIST\n");
+            log_message("Dispatcher asked for LIST");
+            handler_list(argc, argv);
             break;
         default:
-            printf("Unknown command.\n");
-            // this should probably never be called
+            log_message("Unknown command called.");
+
+            printf("'%s' is not a valid command. Use 'anvil help' for a list of available commands.\n", command_name);
     }
 }
