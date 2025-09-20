@@ -11,16 +11,6 @@ typedef struct Command {
     char* help;
 } Command;
 
-// --- Command Registry ---
-
-/* Command commands[] = {
-    {"new", HandlerNew, "Creates a new project from a template."},
-    {"add", HandlerAdd, "Adds a new template."},
-    {"rm", HandlerRemove, "Removes a template."},
-    {"list", HandlerList, "Lists all available templates."},
-    {NULL, NULL, NULL}
-}; */
-
 extern Command command_registry[];
 
 #endif // ANVIL_PARSER_COMMAND_REGISTRY_H_
