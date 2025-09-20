@@ -12,14 +12,12 @@
 "This will copy the relevant template from Anvil's registry into the current directory."
 
 #define CREATE_HELP \
-"Creates a new template.\n" \
-"Usage: create <template_name> <reference_path>\n\n" \
 "<template_name>   The name under which the template will be stored.\n" \
 "<reference_path>  Path to an existing project directory that will serve\n" \
 "                  as the reference for this template.\n\n" \
 "The directory at <reference_path> is copied into ~/.config/anvil/templates/<template_name>\n\n" \
 "Once created, the template can be used with:\n" \
-"  anvil new <template_name> <project_name>\n\n" \
+"anvil new <template_name> <project_name>\n\n" \
 "This will copy the stored template into the current working directory as <project_name>."
 
 #define DELETE_HELP "<template_name> Name of the template to be deleted."

@@ -23,29 +23,15 @@ void dispatch_command(int argc, char* argv[]) {
     Command command = find_command(command_name);
 
     switch(command.command) {
-        case CMD_HELP:
-            log_message("Dispatcher asked for HELP");
-            handler_help(argc, argv);
-            break;
-        case CMD_NEW:
-            log_message("Dispatcher asked for NEW");
-            handler_new(argc, argv);
-            break;
-        case CMD_CREATE:
-            log_message("Dispatcher asked for CREATE");
-            handler_create(argc, argv);
-            break;
-        case CMD_DELETE:
-            log_message("Dispatcher asked for DELETE");
-            handler_delete(argc, argv);
-            break;
-        case CMD_LIST:
-            log_message("Dispatcher asked for LIST");
-            handler_list(argc, argv);
-            break;
-        default:
+        case CMD_NULL:
             log_message("Unknown command called.");
             printf("'%s' is not a valid command. Use 'anvil help' for a list of available commands.\n",
             command_name);
+            break;
+        default:
+            log_message("The following command was called:");
+            log_message(command.name);
+
+            command.handler(argc, argv);
     }
 }
